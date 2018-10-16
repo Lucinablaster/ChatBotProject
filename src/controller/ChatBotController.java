@@ -1,6 +1,9 @@
 package controller;
 import model.ChatBot;
 import java.util.Scanner;
+
+import javax.swing.JOptionPane;
+
 import java.util.ArrayList;
 
 
@@ -8,22 +11,36 @@ import java.util.ArrayList;
 public class ChatBotController
 {
 	
+	private String t;
+	private String e;
+	private String userInput;
+	private String simpleBot;
 	
-	
-	
-	
+	public ChatBotController()
+	{
+		simpleBot = new Chatbot();
+	}
 	public void start()
 	{
-		receiveUserInput();
+		String userInput = "";
+		while (!userInput.equalsIgnoreCase("quit"))
+		{
+			userInput = interactWithChatBot(userInput);
+		}
 	}
 	
-	public void receiveUserInput()
+	private String interactWithChatBot(String text)
 	{
-		
+		String output = "";
+		String userResponse = JOptionPane.showInputDialog(null, "Hi what's up??");
+		output = simpleBot.processText(userResponse);
+		return output;
 	}
 
-	public userInput()
+	public String userInput()
 	{
-		
+		String description =  "Hello";
+		return description;
 	}
+	
 }
