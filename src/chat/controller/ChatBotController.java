@@ -1,8 +1,9 @@
-package controller;
-import model.ChatBot;
+package chat.controller;
 import java.util.Scanner;
 
 import javax.swing.JOptionPane;
+
+import chat.model.ChatBot;
 
 import java.util.ArrayList;
 
