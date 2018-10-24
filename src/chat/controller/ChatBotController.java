@@ -11,7 +11,6 @@ import java.util.ArrayList;
 
 public class ChatBotController
 {
-	
 	private String t;
 	private String e;
 	private String userInput;
@@ -30,6 +29,11 @@ public class ChatBotController
 		}
 	}
 	
+	public ChatBot getChatbot()
+	{
+		return simpleBot;
+	}
+	
 	private String interactWithChatBot(String text)
 	{
 		String output = "";
@@ -42,6 +46,35 @@ public class ChatBotController
 	{
 		String description =  "Hello";
 		return description;
+	}
+	
+	public boolean sentimentChecker(String text)
+	{
+		boolean hasSentiment = false;
+		
+		return hasSentiment;
+	}
+	
+	
+	public boolean legitimacyChecker(String input)
+	{
+		boolean isValid = true;
+		
+		if(input == null)
+		{
+			isValid = false;
+		}
+		else if (input.length() < 2)
+		{
+			isValid = false;
+		}
+
+		else if (input.contains("sdf") || input.contains("cvb"))
+		{
+			isValid = false;
+			
+		}
+		return isValid;
 	}
 	
 }
