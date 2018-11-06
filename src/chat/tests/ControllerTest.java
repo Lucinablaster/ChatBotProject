@@ -12,6 +12,7 @@ public class ControllerTest
 {
 
 	private ChatController testController;
+	
 	@Before
 	public void setUp() throws Exception
 	{
@@ -48,6 +49,6 @@ public class ControllerTest
 	public void testGetChatbot()
 	{
 		assertNotNull("Chatbot data member not initialized", testController.getChatbot());
-	}
+
 
 }

@@ -22,6 +22,9 @@ public class ChatBotController
 	}
 	public void start()
 	{
+		interactWithChatBot();
+		
+		
 		String userInput = "";
 		while (!userInput.equalsIgnoreCase("quit"))
 		{

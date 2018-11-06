@@ -6,6 +6,8 @@ public class ChatBot
 {
 	private ArrayList<String> spookyList;
 	private ArrayList<String> responseList;
+	private boolean isContentValid;
+	private boolean isValid;
 	
 	private String name;
 	private String userInput;
@@ -23,6 +25,7 @@ public class ChatBot
 		this.responseList = new ArrayList<String>();
 		this.spookyList = new ArrayList<String>();
 		buildTheLists();
+
 	}
 	
 	private void buildTheLists()
@@ -43,7 +46,62 @@ public class ChatBot
 	public String processText(String userText)
 	{
 		String answer = "";
-		answer += "You said: " + userText;
 		return answer;
+	}
+	
+	public ArrayList<String> getResponseList()
+	{
+		return responseList;
+	}
+	
+	public ArrayList<String> getSpookyList()
+	{
+		return spookyList;
+	}
+	
+	public boolean contentChecker()
+	{
+		isContentValid = false;
+		
+		return isContentValid;
+	}
+	
+	public boolean legitimacyChecker(String input)
+	{
+		isValid = false;
+		
+		return isValid;
+	}
+	
+	
+	public String useChatbotCheckers(String text)
+	{
+		String testedValues = "The follwing checkers passed:";
+		if (simpleBot.contentChecker(text))
+		{
+			testedValues += 
+		}
+	}
+	string answer = '';
+	if usertext == nulll
+			answer += you should really not send null
+			else
+				answer += you
+	
+	
+	public boolean spookyChecker(String input)
+	{
+		Boolean isSpooky = false;
+		
+		if(input.contains("Halloween"))
+		{
+			isSpooky = true;
+		}
+		
+		else if(input.contains("Easter"))
+		{
+			isSpooky = false;
+		}
+		return isSpooky;
 	}
 }
