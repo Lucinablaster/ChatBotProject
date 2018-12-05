@@ -16,16 +16,15 @@ public class ChatBot
 	private String currentUser;
 	
 	
-	public ChatBot()
+	public void Chatbot()
 	{
-		this.joke = "No u";
 		this.content = new String("This is the content and stuff");
 		this.currentUser = new String("Default user lul boring");
 		
 		this.responseList = new ArrayList<String>();
 		this.spookyList = new ArrayList<String>();
 		buildTheLists();
-
+		
 	}
 	
 	private void buildTheLists()

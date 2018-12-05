@@ -2,35 +2,102 @@ package chat.controller;
 import java.util.Scanner;
 
 import javax.swing.JOptionPane;
+import javax.swing.JScrollPane;
 
 import chat.model.ChatBot;
-
+import javax.swing.*;
 import java.util.ArrayList;
 
 
 
 public class ChatBotController
 {
-	private String t;
-	private String e;
 	private String userInput;
 	private String simpleBot;
+	private String userText;
+	private ChatFrame appFrame;
+	private boolean wasChecked;
 	
 	public ChatBotController()
 	{
 		simpleBot = new Chatbot();
+		appFrame = new ChatFrame(this);
 	}
 	public void start()
 	{
-		interactWithChatBot();
 		
-		
-		String userInput = "";
-		while (!userInput.equalsIgnoreCase("quit"))
-		{
-			userInput = interactWithChatBot(userInput);
-		}
 	}
+	
+	/*public boolean contentChecker(String text)
+	wasChecked = false;
+	{
+		 if(input )
+	}
+	*/
+	
+	public String processText(String userText)
+	{
+		String answer = "";
+		
+		if(!validityChecker(userText))
+		{
+			answer += "You really should not send null\n";
+		}
+		else
+		{
+			answer += "You said: " + userText + "\n";
+			
+			if (contentChecker(userText))
+			{
+				answer += "You said the special words.. \n";
+			}
+			int randomIndex = (int) (responseList.size() * Math.random());
+			answer += "Chatbot says: " + responseList.get(randomIndex) + "\n";
+		}
+		return answer;
+	}
+	
+	public boolean validityChecker(String text)
+	{
+		boolean isValid = false;
+		
+		if(text!= null && text.length() > 3)
+		{
+			isValid = true;
+		}
+		return isValid;
+	}
+	
+	public String interactWithChatbot(String text)
+	{
+		String output = "";
+		output += simpleBot.processText(text);
+		return output;
+	}
+	
+	public String useChatbotCheckers(String text)
+	{
+		String testedValues = "The following checkers passed:";
+		if (simpleBot.contentChecker(text))
+		{
+			testedValues =+ "\nContent Checker";
+		}
+		if (simpleBot.spookyChecker(text))
+		{
+			testedValues += "\nSpooky Checker Happy Halloween" ;
+		}
+		if (simpleBot.validityChecker(text))
+		{
+			testedValues+= "\nValidity Checker";
+		}
+		return testedValues;
+	}
+	
+	private void close()
+	{
+		System.exit(0);
+	}
+	
 	
 	public ChatBot getChatbot()
 	{
@@ -40,8 +107,6 @@ public class ChatBotController
 	private String interactWithChatBot(String text)
 	{
 		String output = "";
-		String userResponse = JOptionPane.showInputDialog(null, "Hi what's up??");
-		output = simpleBot.processText(userResponse);
 		return output;
 	}
 
@@ -57,8 +122,7 @@ public class ChatBotController
 		
 		return hasSentiment;
 	}
-	
-	
+
 	public boolean legitimacyChecker(String input)
 	{
 		boolean isValid = true;
