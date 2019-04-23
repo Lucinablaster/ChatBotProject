@@ -104,6 +104,8 @@ public class ChatBotController
 		return simpleBot;
 	}
 	
+	
+	
 	private String interactWithChatBot(String text)
 	{
 		String output = "";
@@ -121,6 +123,21 @@ public class ChatBotController
 		boolean hasSentiment = false;
 		
 		return hasSentiment;
+	}
+	
+	private void handleErrors(Exception error)
+	{
+		JOptionPane.showMessageDialog(appFrame, error.getMessage());
+	}
+	
+	public ChatFrame getAppFrame()
+	{
+		return appFrame;
+	}
+	
+	public ChatBot getChatBot()
+	{
+		return simpleBot;
 	}
 
 	public boolean legitimacyChecker(String input)
